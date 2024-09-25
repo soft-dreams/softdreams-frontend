@@ -1,6 +1,6 @@
 const config = {
-    backURL: 'https://softdreams-production.up.railway.app/',
-    backAPI: 'https://softdreams-production.up.railway.app/api',
+    backURL: 'https://softdreams.up.railway.app',
+    backAPI: 'https://softdreams.up.railway.app/api',
     // backURL: 'http://127.0.0.1:8080',
     // backAPI: 'http://127.0.0.1:8080/api',
 
