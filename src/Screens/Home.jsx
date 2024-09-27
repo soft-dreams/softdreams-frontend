@@ -55,11 +55,18 @@ export const Home = () => {
             disableOnInteraction: false,
           }}
           breakpoints={{
-            300: {
+            400: {
+              slidesPerView:1 ,
+              spaceBetween: 100
+            },
+            450: {
               slidesPerView: 2,
+              spaceBetween: 100
             },
             520: {
               slidesPerView: 3,
+              spaceBetween: 200
+
             },
             763: {
               slidesPerView: 4,

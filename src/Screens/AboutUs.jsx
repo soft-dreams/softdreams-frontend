@@ -1,6 +1,10 @@
 import React from 'react'
 import { Star, Shield, Award, Clock } from 'lucide-react';
-import mockImg from '../assets/muestra.jpg';
+import nosotros from '../assets/nosotros.png';
+import nosotros1 from '../assets/nosotros1.jpg';
+import nosotros2 from '../assets/nosotros2.jpg';
+import nosotros3 from '../assets/nosotros3.jpg';
+
 import './AboutUs.scss'
 export const AboutUs = () => {
   return (
@@ -11,14 +15,14 @@ export const AboutUs = () => {
         <div className="content">
           <h2 className='bold'> <Star className='icon' /> Nuestra Misión Estelar</h2>
           <p>
-            En SoftDreams, nuestra misión es ofrecer el mejor descanso a nuestros clientes a través de productos de calidad excepcionales. Con más de 30 años de trayectoria en la industria, nos hemos dedicado principalmente a atender las necesidades del sector hotelero, creando colchones que proporcionan comodidad y bienestar a miles de huéspedes.
+            En SoftDreams, nuestra misión es ofrecer el mejor descanso a nuestros clientes a través de productos de calidad excepcionales. Con más de 25 años de trayectoria en la industria, nos hemos dedicado principalmente a atender las necesidades del sector hotelero, creando colchones que proporcionan comodidad y bienestar a miles de huéspedes.
           </p>
           <div className="highlight">
-            <span className="bold">30+ años</span> de experiencia en la industria
+            <span className="bold">25+ años</span> de experiencia en la industria
           </div>
         </div>
         <div className="image-container">
-          <img src={mockImg} />
+          <img src={nosotros} />
         </div>
       </article>
 
@@ -35,7 +39,7 @@ export const AboutUs = () => {
           </ul>
         </div>
         <div className="image-container">
-          <img src={mockImg} />
+          <img src={nosotros1} />
         </div>
       </article>
 
@@ -51,7 +55,7 @@ export const AboutUs = () => {
           </div>
         </div>
         <div className="image-container">
-          <img src={mockImg} />
+          <img src={nosotros2} />
         </div>
       </article>
 
@@ -67,7 +71,7 @@ export const AboutUs = () => {
           </div>
         </div>
         <div className="image-container">
-          <img src={mockImg} />
+          <img src={nosotros3} />
         </div>
       </article>
 
