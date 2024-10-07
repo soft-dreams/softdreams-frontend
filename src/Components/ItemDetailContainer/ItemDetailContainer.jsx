@@ -24,9 +24,13 @@ export const ItemDetailContainer = () => {
         setError('');
         try {
             const products = await getProducts();
+            console.log(products);
+            
             const selectedProduct = products.find(p => p.modelo === model);
             setProduct(selectedProduct);
             setOtherProdsArray(products.filter(p => p.modelo !== model).sort((a, b) => a.modelo - b.modelo));
+            if(!selectedProduct) throw Error("Ocurrio un error cargando este producto. Por favor intentalo de nuevo más tarde.");
+            
         } catch (error) {
             setError(error.message);
         } finally {
@@ -43,7 +47,9 @@ export const ItemDetailContainer = () => {
         <section className='prodDetailContainer'>
             {load ? (
                 <Loading />
-            ) : !error ? (
+            ) : error ? 
+                <p>{error}</p>
+            : (
                 <>
                     <ItemDetail product={product} />
                     <aside className="prodDetailInfo">
@@ -79,7 +85,7 @@ export const ItemDetailContainer = () => {
                             {otherProdsArray.map((p, index) => (
                                 <SwiperSlide key={index}>
                                     <Link className='slide shadow' to={`/products/${p.modelo}`}>
-                                        <img src={p.thumbnails[0]} alt={p.modelo} />
+                                        <img src={p?.thumbnails[0]} alt={p.modelo} />
                                         {p.modelo}
                                     </Link>
                                 </SwiperSlide>
@@ -94,8 +100,6 @@ export const ItemDetailContainer = () => {
                     </aside>
 
                 </>
-            ) : (
-                <p>{error}</p>
             )}
         </section>
     );

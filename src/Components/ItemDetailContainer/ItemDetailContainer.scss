@@ -78,7 +78,9 @@
 }
 
 .detailImg {
-    position: relative;
+    div {
+        position: relative;
+    }
 
     img {
         border-radius: 4px;
@@ -91,6 +93,7 @@
 .detailInfo {
     display: grid;
     grid-template-rows: min-content auto min-content;
+    position: relative;
 
     a {
         color: white;
@@ -101,6 +104,29 @@
         background-color: $text-blue;
         background: rgb(30, 64, 175);
         background: linear-gradient(180deg, rgba(30, 64, 175, 1) 0%, rgb(19, 40, 107) 100%);
+    }
+
+    div {
+        height: 100%;
+        overflow: hidden;
+        margin-bottom: 50px;
+
+        &.more {
+            max-height: 400px;
+        }
+
+        p {
+            text-overflow: ellipsis;
+        }
+    }
+
+    button {
+        position: absolute;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: $text-blue ;
+        bottom: 60px;
     }
 }
 
@@ -216,21 +242,21 @@
 }
 
 .prodFeatureInfo {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     padding-bottom: 50px;
     border-bottom: 3px solid rgba(44, 44, 44, 0.5);
 }
 
 .prodFeature {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     flex-direction: column;
 
     span {
         font-weight: 600;
+        text-align: center;
     }
 
     img,
@@ -240,10 +266,19 @@
         border-radius: 50%;
         width: 70px;
         height: 70px;
-    }
-
-    div {
         display: grid;
         place-items: center;
+    }
+
+    @media(max-width: 576px) {
+        span {
+            font-size: 14px;
+        }
+
+        img,
+        div {
+            width: 60px;
+            height: 60px;
+        }
     }
 }

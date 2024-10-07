@@ -11,10 +11,12 @@ import altura from '../../assets/altura.png'
 
 
 export const ItemDetail = ({ product }) => {
-    const [currentImg, setCurrentImg] = useState(0)
+
+    const [currentImg, setCurrentImg] = useState(0);
+    const [readMore, setReadMore] = useState(false);
 
     function imgChangeFwd() {
-        currentImg === (product.thumbnails.length - 1) ? setCurrentImg(0) : setCurrentImg(currentImg + 1)
+        currentImg === (product?.thumbnails?.length - 1) ? setCurrentImg(0) : setCurrentImg(currentImg + 1)
     }
     function imgChangeBack() {
         currentImg === 0 ? setCurrentImg(product.thumbnails.length - 1) : setCurrentImg(currentImg - 1)
@@ -23,7 +25,7 @@ export const ItemDetail = ({ product }) => {
         <>
             <div className='prodDetailMain'>
                 <div className='detailSubImg'>
-                    {product.thumbnails?.map((image, index) =>
+                    {product?.thumbnails?.map((image, index) =>
                         <img width={100} key={`Detail SubImg - ${product.modelo} - ${index}`}
                             src={image} alt={product.modelo}
                             onClick={() => setCurrentImg(index)}
@@ -32,19 +34,22 @@ export const ItemDetail = ({ product }) => {
                     )}
                 </div>
                 <div className='detailImg'>
-                    <img src={product?.thumbnails[currentImg]} alt={product.modelo} />
-                    {product.thumbnails[1] &&
-                        (
-                            <>
-                                <IoIosArrowForward className='arrowFwd' onClick={imgChangeFwd} />
-                                <IoIosArrowBack className='arrowBack' onClick={imgChangeBack} />
-                            </>
-                        )}
+                    <div>
+                        <img src={product?.thumbnails[currentImg]} alt={product.modelo} />
+                        {product?.thumbnails[1] &&
+                            (
+                                <>
+                                    <IoIosArrowForward className='arrowFwd' onClick={imgChangeFwd} />
+                                    <IoIosArrowBack className='arrowBack' onClick={imgChangeBack} />
+                                </>
+                            )}
+                    </div>
 
                 </div>
-                <div className='detailInfo'>
+                <div className={`detailInfo`}>
                     <h1>{product.modelo}</h1>
-                    <div dangerouslySetInnerHTML={{ __html: product.descripcion }}></div>
+                    <div className={`${!readMore ? 'more' : ''}`} dangerouslySetInnerHTML={{ __html: product.descripcion }}></div>
+                    <button onClick={() => setReadMore(!readMore)}>{!readMore ? "Leer más..." : "Leer menos..."} </button>
                     <Link className='text-center' to={`${config.wpp}?text=!Hola! Quería hacer una consulta sobre el colchón ${product.modelo}`} target={'_blank'}>Solicitar Colchon</Link>
                 </div>
             </div>

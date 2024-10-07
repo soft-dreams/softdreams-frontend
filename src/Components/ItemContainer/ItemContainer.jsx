@@ -10,12 +10,20 @@ export const ItemContainer = () => {
 
     const [products, setProducts] = useState([]);
     const [load, setLoad] = useState(false);
+    const [error, setError] = useState("");
 
     const useProducts = async () => {
         setLoad(true);
-        const products = await getProducts();
-        setProducts(products);
-        setLoad(false);
+        setError("");
+        try {
+            const products = await getProducts();
+            setProducts(products);
+        } catch (e) {
+            setError("Hubo un problema cargando nuestros productos, por favor intentalo más tarde.")
+        }
+        finally {
+            setLoad(false)
+        }
     }
 
     useEffect(() => {
@@ -25,9 +33,11 @@ export const ItemContainer = () => {
     return (
         <section className={"prodContainer"}>
             {load ? <Loading /> :
-                products?.map(p => (
-                    <Item key={p.id} product={p} />
-                ))
+                error ? <p>{error}</p>
+                    :
+                    products?.map(p => (
+                        <Item key={p.id} product={p} />
+                    ))
             }
         </section>
     )

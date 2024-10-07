@@ -1,8 +1,8 @@
 const config = {
-    backURL: 'https://softdreams.up.railway.app',
-    backAPI: 'https://softdreams.up.railway.app/api',
-    // backURL: 'http://127.0.0.1:8080',
-    // backAPI: 'http://127.0.0.1:8080/api',
+    // backURL: 'https://softdreams.up.railway.app',
+    // backAPI: 'https://softdreams.up.railway.app/api',
+    backURL: 'http://127.0.0.1:8080',
+    backAPI: 'http://127.0.0.1:8080/api',
 
     cellphone: "+54 9 11 2253-8982",
     wpp: "https://wa.me/22538982",
