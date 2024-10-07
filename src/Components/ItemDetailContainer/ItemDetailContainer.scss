@@ -113,6 +113,12 @@
 
         &.more {
             max-height: 628px;
+            @media(max-width: 999px){
+                max-height: 400px;
+            }
+            @media(max-width: 576px){
+                max-height: 300px;
+            }
         }
 
         p {
